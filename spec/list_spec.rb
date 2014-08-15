@@ -10,6 +10,16 @@ describe List do
     end
   end
 
+  describe '#==' do
+    it 'returns true for equivalent lists' do
+      expect(List['a', 'b', 'c'] == List['a', 'b', 'c']).to be(true)
+    end
+
+    it 'returns false for unequivalent lists' do
+      expect(List['a', 'b', 'c'] == List['a', 'b', 'x']).to be(false)
+    end
+  end
+
   describe '#<<' do
     subject(:list) { List.allocate }
 
@@ -30,14 +40,14 @@ describe List do
     end
 
     it "correctly resizes the Array" do
-      a = Array.allocate
+      a = List.allocate
       expect(a.size).to eq(0)
       a << :foo
       expect(a.size).to eq(1)
       a << :bar << :baz
       expect(a.size).to eq(3)
 
-      a = Array[1, 2, 3]
+      a = List[1, 2, 3]
       a.shift
       a.shift
       a.shift
@@ -89,7 +99,7 @@ describe List do
     end
 
     context 'with [-index]' do
-      it 'sets the value of the element at index fromt eh end of the list' do
+      it 'sets the value of the element at index from the end of the list' do
         list[-1] = 'z'
         expect(list).to eq(List['a', 'b', 'z'])
         list[-2] = 'y'
