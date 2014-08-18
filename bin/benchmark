@@ -4,40 +4,42 @@ $:.unshift File.join(File.dirname(File.dirname(__FILE__)), 'lib')
 require 'benchmark'
 require 'list'
 
+N = Integer(ARGV[0]) rescue 30_000_000
+
 puts 'Benchmarking List'
 
 Benchmark.bm do |b|
 
   list = List[]
-  30_000_000.times { |i| list << i }
+  N.times { |i| list << i }
   b.report("[]\t") do
-    30_000_000.times { |i| a = list[i] }
+    N.times { |i| a = list[i] }
   end
 
   b.report("[]=\t") do
-    30_000_000.times { |i| list[i] = i }
+    N.times { |i| list[i] = i }
   end
 
   list = List[]
   b.report("<<\t") do
-    30_000_000.times { |i| list << i }
+    N.times { |i| list << i }
   end
 
   list = List[]
-  30_000_000.times { |i| list << i }
+  N.times { |i| list << i }
   b.report("pop\t") do
-    30_000_000.times { list.pop }
+    N.times { list.pop }
   end
 
   list = List[]
   b.report("unshift\t") do
-    30_000_000.times { |i| list.unshift i }
+    N.times { |i| list.unshift i }
   end
 
   list = List[]
-  30_000_000.times { |i| list << i }
+  N.times { |i| list << i }
   b.report("shift\t") do
-    30_000_000.times { list.shift }
+    N.times { list.shift }
   end
 
 end
