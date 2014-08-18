@@ -12,12 +12,20 @@ module Qualification
     end
 
     def scan
-      source_codes.each do |code|
-        ast = Ripper.sexp(code)
-        search ast do |expression|
-          test expression
-        end
+      source_files.each do |filename|
+        scan_file filename
       end
+    end
+
+    def scan_file(filename)
+      code = File.read(filename)
+      ast = Ripper.sexp(code)
+      search ast do |expression|
+        test expression
+      end
+    rescue Disqualified => disqualification
+      puts "#{ filename } was disqualified"
+      raise disqualification
     end
 
     def search(sexp_or_op, &block)
@@ -27,13 +35,13 @@ module Qualification
       yield sexp_or_op
     end
 
-    def source_codes
+    def source_files
       return enum_for(__method__) unless block_given?
 
       paths.each do |path|
         path = path.join('*.rb')
         Dir[path].each do |file|
-          yield File.read(file)
+          yield file
         end
       end
     end
