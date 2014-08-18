@@ -9,6 +9,10 @@ scanner = Qualification.build do
   match [:@const, 'Array'], 'Used Array constant'
 
   match [:array], 'Used array literal'
+
+  match [:@const, 'Hash'], 'Used Hash constant'
+
+  match [:hash], 'Used hash literal'
 end
 
 scanner.scan
