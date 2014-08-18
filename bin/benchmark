@@ -7,6 +7,14 @@ require 'dict'
 
 N = Integer(ARGV[0]) rescue 30_000_000
 
+puts "Running each benchmark #{ N } times"
+
+Benchmark.bm do |b|
+  b.report("no-op\t") do
+    N.times { |i| i }
+  end
+end
+
 puts 'Benchmarking List'
 
 Benchmark.bm do |b|
