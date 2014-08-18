@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+$:.unshift File.join(File.dirname(File.dirname(__FILE__)), 'lib')
+
+require 'qualification'
+
+scanner = Qualification.build do
+  scan File.join(File.dirname(File.dirname(__FILE__)), 'lib')
+
+  match [:@const, 'Array'], 'Used Array constant'
+
+  match [:array], 'Used array literal'
+end
+
+scanner.scan
