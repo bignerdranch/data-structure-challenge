@@ -67,7 +67,7 @@ describe Dict do
       expect(dict[List[]]).to eq(object)
     end
 
-    it 'returnes the value' do
+    it 'returns the value' do
       dict = Dict.allocate
       expect(dict['foo'] = 'bar').to eq('bar')
     end
