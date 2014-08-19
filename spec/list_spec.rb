@@ -20,6 +20,28 @@ describe List do
     end
   end
 
+  describe '#shift' do
+    it 'removes the first element' do
+      list = List[1,2]
+      list.shift
+      expect(list).to eq(List[2])
+    end
+
+    it 'returns the removed element' do
+      list = List[1,2]
+      element = list.shift
+      expect(element).to eq(1)
+    end
+  end
+
+  describe '#unshift' do
+    it 'prepends the list with element' do
+      list = List[2]
+      list.unshift(1)
+      expect(list[0]).to eq(1)
+    end
+  end
+
   describe '#<<' do
     subject(:list) { List.allocate }
 
