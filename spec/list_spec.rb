@@ -34,6 +34,14 @@ describe List do
     end
   end
 
+  describe '#unshift' do
+    it 'prepends the list with element' do
+      list = List[2]
+      list.unshift(1)
+      expect(list[0]).to eq(1)
+    end
+  end
+
   describe '#<<' do
     subject(:list) { List.allocate }
 
