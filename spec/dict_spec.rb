@@ -20,6 +20,13 @@ describe Dict do
     end
   end
 
+  describe '::allocate' do
+    it 'creates a new, empty dict' do
+      dict = Dict.allocate
+      expect(dict).to eq(Dict[])
+    end
+  end
+
   describe '#==' do
     it 'returns true for equivalent dicts' do
       list1 = Dict[List[List['a', 'b'], List['c', 'd']]]
