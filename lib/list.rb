@@ -63,12 +63,21 @@ class List
   def last
     @last ||= NOP.new
   end
+
   private
   def get_element(i)
-    current = @first
-    until i <= 0
-      i -= 1
-      current = current.next
+    if i >= 0
+      current = @first
+      until i == 0
+        i -= 1
+        current = current.next
+      end
+    else
+      current = @last
+      until i == -1
+        i += 1
+        current = current.previous
+      end
     end
     current
   end
@@ -83,6 +92,15 @@ class List
     def next=(element)
     end
     def previous=(element)
+    end
+    def next
+      self
+    end
+    def previous
+      self
+    end
+    def payload
+      nil
     end
     def ==(other)
       true
