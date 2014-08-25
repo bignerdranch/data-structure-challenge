@@ -1,4 +1,6 @@
-# Ruby Data Structure Hack Night
+# Ruby Data Structure Challenge
+
+A Big Nerd Ranch hack night.
 
 ![Big Nerd Ranch](http://f.cl.ly/items/0a3U221N083v3L072W0q/logo-full-h.png)
 
