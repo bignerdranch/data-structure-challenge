@@ -17,12 +17,7 @@ class List
   end
 
   def [](i)
-    current = @first
-    until i <= 0
-      i -= 1
-      current = current.next
-    end
-    current.payload
+    get_element(i).payload
   end
 
   def ==(other)
@@ -30,7 +25,25 @@ class List
     @first == other.first
   end
 
-  class Element < Struct.new(:payload, :next, :previous)
+  def shift
+    return_value = @first.payload
+    new_first = get_element(1)
+    @first.next = nil
+    new_first.previous = :first_element
+    @first = new_first
+    return_value
+  end
+
+  private
+  def get_element(i)
+    current = @first
+    until i <= 0
+      i -= 1
+      current = current.next
+    end
+    current
+  end
+  class Element < Struct.new(:payload, :previous, :next)
 
   end
 end
