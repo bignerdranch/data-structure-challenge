@@ -34,6 +34,12 @@ class List
     return_value
   end
 
+  def unshift(element)
+    element = Element.new(element, :first_element, @first)
+    @first.previous = element
+    @first = element
+  end
+
   private
   def get_element(i)
     current = @first
