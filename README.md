@@ -1,5 +1,7 @@
 # Ruby Data Structure Hack Night
 
+![Big Nerd Ranch](http://f.cl.ly/items/0a3U221N083v3L072W0q/logo-full-h.png)
+
 Implement lists and dicts from Plain Ol' Ruby Objects. Their interfaces are a
 compatible subset of Ruby Arrays and Hashes.
 
