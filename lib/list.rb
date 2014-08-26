@@ -1,3 +1,5 @@
+require 'pry'
+
 # Implement List here
 class List
 	attr_accessor :elements
