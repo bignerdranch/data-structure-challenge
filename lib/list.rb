@@ -1,6 +1,4 @@
 # Implement List here
-require 'pry'
-
 class Node
     attr_accessor :value, :next
 
