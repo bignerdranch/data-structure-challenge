@@ -41,12 +41,8 @@ class List
   end
 
   def <<(value)
-    if length.nil?
-      self[0] = value
-    else
-      self[length] = value
-    end
-
+    index = length.nil? ? 0 : length
+    self[index] = value
     self
   end
 
