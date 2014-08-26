@@ -1,6 +1,4 @@
 # Implement List here
-require 'pry'
-
 class List
   include Enumerable
   attr_reader :total
@@ -76,7 +74,6 @@ class List
 
   def ==(other)
     if @total != other.total
-      binding.pry
       return false
     end
 
