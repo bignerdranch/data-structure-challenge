@@ -19,6 +19,17 @@ class List
     get_element(i).payload
   end
 
+  def []=(i,new_element)
+    normalized_index = normalize_index(i)
+    element = get_element(i)
+    raise IndexError if element.nop? and i < 0
+    new_element = Element.new(new_element, element.previous, element.next)
+    new_element.previous.next = new_element
+    new_element.next.previous = new_element
+    @first = new_element if normalized_index == 0
+    @last = new_element if normalized_index == self.size - 1
+  end
+
   def ==(other)
     # This works because first essentially has the whole rat tail of object in it
     @first == other.first
@@ -65,19 +76,20 @@ class List
   end
 
   private
-  def get_element(i)
-    if i >= 0
-      current = @first
-      until i == 0
-        i -= 1
-        current = current.next
-      end
+  def normalize_index(i)
+    if i < 0
+      i + self.size
     else
-      current = @last
-      until i == -1
-        i += 1
-        current = current.previous
-      end
+      i
+    end
+  end
+  def get_element(i)
+    i = normalize_index(i)
+    return NOP.new unless i>=0 and i<self.size
+    current = @first
+    until i == 0
+      i -= 1
+      current = current.next
     end
     current
   end
