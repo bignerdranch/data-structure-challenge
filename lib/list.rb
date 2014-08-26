@@ -158,18 +158,4 @@ class ListNode
     @next = nil
     @prev = nil
   end
-
-  # def add(value)
-  #   if @next.nil?
-  #     @next = ListNode.new(value)
-  #     @next.prev = self
-  #     @next
-  #   else
-  #     cur = self
-  #     until cur.next.nil?
-  #       cur = cur.next
-  #     end
-  #     cur.add(value)
-  #   end
-  # end
 end
