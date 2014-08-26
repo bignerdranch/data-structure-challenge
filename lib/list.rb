@@ -8,8 +8,9 @@ class List
 
   def initialize(args)
     args.each_with_index do |item, index|
-      instance_variable_set(index_from(index), item)
+      self[index] = item
     end
+
     @length = args.length
   end
 
