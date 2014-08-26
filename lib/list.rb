@@ -14,17 +14,17 @@ class List
     @length = args.length
   end
 
-  def [](int)
-    index_at(int)
+  def [](index)
+    index_at(index)
   end
 
-  def []=(int, new_value)
-    instance_variable_set(index_from(int), new_value)
+  def []=(index, new_value)
+    instance_variable_set(index_from(index), new_value)
   end
 
   def ==(other_list)
-    length.times do |int|
-      return false if self[int] != other_list[int]
+    length.times do |index|
+      return false if self[index] != other_list[index]
     end
     return true
   end
@@ -36,8 +36,8 @@ class List
     value_at_0
   end
 
-  def unshift(int)
-    self[0] = int
+  def unshift(value)
+    self[0] = value
   end
 
   def <<(value)
@@ -48,15 +48,15 @@ class List
 
   private
 
-  def remove_index_at(int)
-    remove_instance_variable(index_from(int))
+  def remove_index_at(index)
+    remove_instance_variable(index_from(index))
   end
 
-  def index_at(int)
-    instance_variable_get(index_from(int))
+  def index_at(index)
+    instance_variable_get(index_from(index))
   end
 
-  def index_from(int)
-    "@i#{int}".to_sym
+  def index_from(index)
+    "@i#{index}".to_sym
   end
 end
