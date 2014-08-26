@@ -10,7 +10,7 @@ describe Dict do
         expect(Dict[pairs]).to be_a(Dict)
       end
 
-      it 'uses each element as a key/value pair to create a dict' do
+      xit 'uses each element as a key/value pair to create a dict' do
         dict = Dict[pairs]
 
         pairs.each do |key, value|
@@ -21,13 +21,13 @@ describe Dict do
   end
 
   describe '#==' do
-    it 'returns true for equivalent dicts' do
+    xit 'returns true for equivalent dicts' do
       list1 = Dict[List[List['a', 'b'], List['c', 'd']]]
       list2 = Dict[List[List['c', 'd'], List['a', 'b']]]
       expect(list1 == list2).to be(true)
     end
 
-    it 'returns false for unequivalent dicts' do
+    xit 'returns false for unequivalent dicts' do
       list1 = Dict[List[List['a', 'b'], List['c', 'd']]]
       list2 = Dict[List[List['c', 'd'], List['e', 'f']]]
       expect(list1 == list2).to be(false)
@@ -37,7 +37,7 @@ describe Dict do
   describe '#[]' do
     let(:object) { Object.new }
 
-    it 'returns the value for key' do
+    xit 'returns the value for key' do
       dict = Dict[List[
         List[:a, 1],
         List['b', 'two'],
@@ -54,7 +54,7 @@ describe Dict do
   describe '#[]=' do
     let(:object) { Object.new }
 
-    it 'it stores the value at key' do
+    xit 'xit stores the value at key' do
       dict = Dict.allocate
       dict[:a] = 1
       dict['b'] = 'two'
@@ -67,13 +67,13 @@ describe Dict do
       expect(dict[List[]]).to eq(object)
     end
 
-    it 'returns the value' do
+    xit 'returns the value' do
       dict = Dict.allocate
       expect(dict['foo'] = 'bar').to eq('bar')
     end
 
     context 'twice with the same key' do
-      it 'overwrites the first assignment' do
+      xit 'overwrites the first assignment' do
         dict = Dict.allocate
         dict['foo'] = 'bar'
         dict['foo'] = 'baz'

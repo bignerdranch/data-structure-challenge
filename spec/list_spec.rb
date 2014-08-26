@@ -61,7 +61,7 @@ describe List do
       expect(a << 2 << 3).to equal(b)
     end
 
-    it "correctly resizes the Array" do
+    xit "correctly resizes the Array" do
       a = List.allocate
       expect(a.size).to eq(0)
       a << :foo
@@ -93,7 +93,7 @@ describe List do
     end
 
     context 'with [-index]' do
-      it 'returns the element at index from the end of the list' do
+      xit 'returns the element at index from the end of the list' do
         expect(list[-1]).to eq('d')
         expect(list[-2]).to eq('c')
         expect(list[-3]).to eq('b')
@@ -121,7 +121,7 @@ describe List do
     end
 
     context 'with [-index]' do
-      it 'sets the value of the element at index from the end of the list' do
+      xit 'sets the value of the element at index from the end of the list' do
         list[-1] = 'z'
         expect(list).to eq(List['a', 'b', 'z'])
         list[-2] = 'y'
@@ -131,7 +131,7 @@ describe List do
       end
 
       context 'where index is greater than the length of the list' do
-        it 'raises an exception' do
+        xit 'raises an exception' do
           expect { list[-4] = 'w' }.to raise_error(IndexError)
         end
       end
